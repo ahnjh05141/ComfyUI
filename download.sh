@@ -10,7 +10,11 @@ for json_file in wan.json qwen.json; do
         name=$(echo "$row" | jq -r '.file_name')
 
         mkdir -p "$dir"
-        echo "Downloading from $url"
-        curl -L -o "$dir/$name" "$url"
+        if [ -f "$dir/$name" ]; then
+            echo "Skipping $name (already exists)"
+        else
+            echo "Downloading from $url"
+            curl -L -o "$dir/$name" "$url"
+        fi
     done
 done
