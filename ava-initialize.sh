@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-chmod +x start_comfyui.sh
+chmod +x start-comfyui.sh
 
 # 로그 시작
 echo "=== $(date) initialize ComfyUI ==="
